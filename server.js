@@ -32,6 +32,9 @@ function bail(err, req, res) {
   res.statusCode = 500
   res.setHeader('content-type', 'text/plain')
   res.end([err.message, err.stack].join('\n'))
+
+  console.log(err.message)
+  console.log(err.stack)
 }
 
 var bundler = browserify({

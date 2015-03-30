@@ -68,8 +68,10 @@ function Editor(container, src) {
   }), false)
 
   if (src) {
-    this.update(src, function(){})
     this.editor.setValue(src)
+    this.update(src, function(err) {
+      if (err) console.error(err)
+    })
   }
 }
 

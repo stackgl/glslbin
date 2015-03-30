@@ -21,7 +21,7 @@ const frag = `
   precision mediump float;
 
   void main() {
-    gl_FragColor = vec4(1, 0, 0, 1);
+    gl_FragColor = vec4(0, 0, 0, 0);
   }
 `
 
@@ -38,7 +38,7 @@ function Display(canvas) {
     gl.viewport(0, 0, width, height)
 
     shader.bind()
-    shader.uniforms.iGlobalTime = now() - start
+    shader.uniforms.iGlobalTime = (now() - start) / 1000
     shader.uniforms.iResolution = [width, height, 1]
     triangle(gl)
   }

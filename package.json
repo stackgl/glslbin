@@ -21,7 +21,7 @@
     "gl-shader": "^4.0.0",
     "glslify": "^2.0.0",
     "glslify-bundle": "^2.0.1",
-    "glslify-client": "^1.0.0",
+    "glslify-client": "^1.0.1",
     "glslify-deps": "^1.2.0",
     "glslify-detective": "^1.0.0",
     "glslify-resolve-remote": "^2.0.1",
