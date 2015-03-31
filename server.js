@@ -1,5 +1,6 @@
 const st         = require('serve-static')
 const browserify = require('browserify')
+const uglify     = require('uglify-js')
 const router     = require('course')()
 const watchify   = require('watchify')
 const mkdirp     = require('mkdirp')
@@ -53,13 +54,27 @@ update()
 
 function update() {
   console.time('built bundle.js')
-  bundler.bundle().on('error', function(err) {
-    console.error(err.message)
-    console.error(err.stack)
+  bundler.bundle(function(err, src) {
     console.timeEnd('built bundle.js')
-  }).pipe(fs.createWriteStream(
-    path.join(__dirname, 'dist', 'bundle.js')
-  )).once('close', function() {
-    console.timeEnd('built bundle.js')
+
+    src = uglify.minify('' + src, {
+      fromString: true,
+      compress: true,
+      mangle: true
+    }).code
+
+    if (err) {
+      console.error(err.message)
+      console.error(err.stack)
+      return
+    }
+
+    var file = path.join(__dirname, 'dist', 'bundle.js')
+
+    fs.writeFile(file, src, function(err) {
+      if (!err) return
+      console.error(err.message)
+      console.error(err.stack)
+    })
   })
 }
