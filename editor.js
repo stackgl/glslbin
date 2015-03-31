@@ -1,3 +1,4 @@
+const mousetrap     =(require('mousetrap'), window.Mousetrap)
 const frameDebounce = require('frame-debounce')
 const Client        = require('glslify-client')
 const size          = require('element-size')
@@ -10,6 +11,8 @@ const xhr           = require('xhr')
 module.exports = Editor
 
 require('./editor-glsl')(CodeMirror)
+require('./editor-search')(CodeMirror)
+require('./editor-sublime')(CodeMirror)
 
 inherits(Editor, Emitter)
 function Editor(container, src) {
@@ -31,14 +34,21 @@ function Editor(container, src) {
     styleActiveLine: true,
     showCursorWhenSelecting: true,
     viewportMargin: Infinity,
+    keyMap: 'sublime',
     indentUnit: 2,
     tabSize: 2,
     value: ''
   })
 
-  this.editor.on('change', debounce(function() {
-    self.update(self.editor.getValue())
-  }, 500))
+  this.editor.addKeyMap({
+    'Cmd-Enter': () => this.reload(),
+    'Ctrl-Enter': () => this.reload()
+  })
+
+  // // Auto-updating disabled for now
+  // this.editor.on('change', debounce(function() {
+  //   self.update(self.editor.getValue())
+  // }, 500))
 
   this._update = Client(function(source, done) {
     xhr({
@@ -90,4 +100,8 @@ Editor.prototype.update = function(src, done) {
     self.emit('update', result)
     done && done(null, result)
   })
+}
+
+Editor.prototype.reload = function() {
+  this.update(this.editor.getValue())
 }

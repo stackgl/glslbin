@@ -25,3 +25,9 @@ window.addEventListener('resize',
 editor.on('update', function(src) {
   display.update(src)
 })
+
+document.querySelector('.buttons .play').addEventListener('click', e => {
+  editor.reload()
+  e.preventDefault()
+  e.stopPropagation()
+}, false)

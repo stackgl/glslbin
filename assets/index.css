@@ -148,3 +148,30 @@ main {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
 }
+
+.buttons {
+  position: absolute;
+  right: 0.3rem;
+  top: 0;
+}
+
+.buttons > li {
+  opacity: 0.5;
+  display: block;
+  cursor: pointer;
+  width: 2rem;
+  height: 3rem;
+  float: right;
+  padding-left: 0.25rem;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: opacity 0.2s;
+}
+
+.buttons > li:hover {
+  opacity: 1;
+}
+
+.buttons li.play { background-image: url('/play.svg'); }
+.buttons li.auto { background-image: url('/auto.svg'); }
