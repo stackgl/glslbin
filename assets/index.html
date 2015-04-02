@@ -8,7 +8,7 @@
   <body>
     <header>
       <h1>
-        <span class="lang">GLSL</span>bin
+        <a href="/"><span class="lang">GLSL</span>bin</a>
       </h1>
       <ul class="buttons">
         <li title="Update Shader (Cmd+Enter / Ctrl+Enter)" class="play"></li>
@@ -36,6 +36,27 @@
           <canvas id="canvas"></canvas>
         </div>
       </div>
+      <article>
+        <p>
+          glslbin is a fragment shader sandbox similar to
+          <a href="http://shadertoy.com" target="_blank">ShaderToy</a> or
+          <a href="http://glslsandbox.com/" target="_blank">GLSL Sandbox</a>.
+          It's still a work in progress, so expect more to come soon.
+        </p>
+        <p>
+          It adds support for
+          <a href="http://github.com/stackgl/glslify" target="_blank">glslify</a>,
+          a GLSL module system which allows you to easily pull in shared code
+          snippets from <a href="http://npmjs.com/" target="_blank">npm</a>.
+        </p>
+        <p>
+          These modules are all hosted as part of the
+          <a href="http://stack.gl" target="_blank">stack.gl</a> project:
+          you can find a full list of packages in the "Shader Components"
+          section <a href="http://stack.gl/packages" target="_blank">here</a>.
+          Enjoy!
+        </p>
+      </article>
     </main>
     <script charset="utf-8" src="/bundle.js"></script>
     <script>

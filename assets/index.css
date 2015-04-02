@@ -126,6 +126,11 @@ header h1 {
   font-size: 1.25rem;
 }
 
+header h1 a {
+  text-decoration: none;
+  color: #DEE7FF;
+}
+
 header h1 .lang {
   color: #61FF90;
 }
@@ -218,4 +223,28 @@ header select {
   position: relative;
   top: 1.5rem;
   transform: translate(0,-50%);
+}
+
+article {
+  padding: 2rem;
+  font-family: 'Roboto';
+  color: #fff;
+  font-weight: 300;
+}
+
+article a {
+  color: #66C4FF;
+  text-decoration: none;
+}
+
+article p {
+  line-height: 1.5em;
+}
+
+article p + p {
+  margin-top: 1rem;
+}
+
+.fullscreen article {
+  display: none;
 }
