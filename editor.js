@@ -47,10 +47,12 @@ function Editor(container, src) {
     'Ctrl-O': () => this.emit('fullscreen')
   })
 
-  // // Auto-updating disabled for now
-  // this.editor.on('change', debounce(function() {
-  //   self.update(self.editor.getValue())
-  // }, 500))
+  // Auto-updating disabled for now
+  this.instant = false
+  this.editor.on('change', debounce(function() {
+    if (!self.instant) return
+    self.update(self.editor.getValue())
+  }, 500))
 
   this._update = Client(function(source, done) {
     xhr({
@@ -107,3 +109,19 @@ Editor.prototype.update = function(src, done) {
 Editor.prototype.reload = function() {
   this.update(this.editor.getValue())
 }
+
+Object.defineProperty(Editor.prototype, 'instant', {
+  get: function() {
+    return this._instant
+  },
+  set: function(value) {
+    if (value === this._instant) return
+    if (value) {
+      document.body.classList.add('instant')
+    } else {
+      document.body.classList.remove('instant')
+    }
+
+    return this._instant = value
+  }
+})

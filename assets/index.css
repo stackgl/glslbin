@@ -177,6 +177,7 @@ main {
 .buttons li.auto { background-image: url('/auto.svg'); }
 .buttons li.full { background-image: url('/full.svg'); }
 .fullscreen .buttons li.full { background-image: url('/full-close.svg'); }
+.instant    .buttons li.auto { background-image: url('/auto-on.svg'); }
 
 .fullscreen .canvas-container {
   position: absolute;

@@ -37,6 +37,12 @@ document.querySelector('.buttons .full').addEventListener('click', e => {
   e.stopPropagation()
 })
 
+document.querySelector('.buttons .auto').addEventListener('click', e => {
+  editor.instant = !editor.instant
+  e.preventDefault()
+  e.stopPropagation()
+})
+
 editor.on('fullscreen', toggleFullscreen)
 function toggleFullscreen() {
   document.body.classList.toggle('fullscreen')
