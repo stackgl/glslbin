@@ -42,7 +42,9 @@ function Editor(container, src) {
 
   this.editor.addKeyMap({
     'Cmd-Enter': () => this.reload(),
-    'Ctrl-Enter': () => this.reload()
+    'Ctrl-Enter': () => this.reload(),
+    'Cmd-O': () => this.emit('fullscreen'),
+    'Ctrl-O': () => this.emit('fullscreen')
   })
 
   // // Auto-updating disabled for now

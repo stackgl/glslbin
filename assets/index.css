@@ -175,3 +175,39 @@ main {
 
 .buttons li.play { background-image: url('/play.svg'); }
 .buttons li.auto { background-image: url('/auto.svg'); }
+.buttons li.full { background-image: url('/full.svg'); }
+.fullscreen .buttons li.full { background-image: url('/full-close.svg'); }
+
+.fullscreen .canvas-container {
+  position: absolute;
+  top: 3rem; left: 0; right: 0; bottom: 0;
+  width: auto; height: auto;
+  margin-top: 0;
+}
+
+.fullscreen .editor {
+  left: 2rem; right: 2rem; top: 5rem; bottom: 2rem;
+}
+
+.fullscreen .CodeMirror {
+  background: rgba(52, 54, 59, 0.5);
+  border-radius: 0.15rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+  text-shadow: 0 1px rgba(52, 54, 59, 0.5);
+}
+
+.fullscreen .CodeMirror:hover {
+  opacity: 1;
+}
+
+.fullscreen .CodeMirror .CodeMirror-gutters {
+  background: transparent;
+  border-right: 0;
+  padding-right: 0.5rem;
+}
+
+.fullscreen header {
+  z-index: 99;
+  width: 100vw;
+}

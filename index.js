@@ -17,10 +17,9 @@ void main() {
 
 var canvas = document.querySelector('canvas')
 var display = require('./display')(canvas)
+var fitter  = fit(canvas)
 
-window.addEventListener('resize',
-  debounce(fit(canvas)),
-  false)
+window.addEventListener('resize', debounce(fitter), false)
 
 editor.on('update', function(src) {
   display.update(src)
@@ -31,3 +30,16 @@ document.querySelector('.buttons .play').addEventListener('click', e => {
   e.preventDefault()
   e.stopPropagation()
 }, false)
+
+document.querySelector('.buttons .full').addEventListener('click', e => {
+  toggleFullscreen()
+  e.preventDefault()
+  e.stopPropagation()
+})
+
+editor.on('fullscreen', toggleFullscreen)
+function toggleFullscreen() {
+  document.body.classList.toggle('fullscreen')
+  fitter(canvas)
+  editor.resize()
+}
