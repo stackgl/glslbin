@@ -10,7 +10,7 @@
     "babelify": "^5.0.4",
     "bl": "^0.9.4",
     "browserify": "^9.0.3",
-    "canvas-fit": "^1.2.0",
+    "canvas-fit": "^1.3.0",
     "codemirror": "^5.1.0",
     "course": "0.0.1",
     "debounce": "^1.0.0",

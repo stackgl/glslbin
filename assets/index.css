@@ -213,7 +213,7 @@ main {
   width: 100vw;
 }
 
-select[name="examples"] {
+header select {
   margin-right: 0.75rem;
   position: relative;
   top: 1.5rem;

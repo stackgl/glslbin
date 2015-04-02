@@ -51,6 +51,7 @@ function toggleFullscreen() {
 }
 
 var egSelector = document.querySelector('[name="examples"]')
+var szSelector = document.querySelector('[name="scale"]')
 var examples = require('./examples')
 
 egSelector.addEventListener('change', e => {
@@ -58,4 +59,11 @@ egSelector.addEventListener('change', e => {
   if(!name) return
 
   editor.value(examples[egSelector.value].trim())
+})
+
+szSelector.addEventListener('change', e => {
+  var value = Number(szSelector.value)
+  if (!value) return
+  fitter.scale = value
+  fitter()
 })
