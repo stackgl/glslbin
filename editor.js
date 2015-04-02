@@ -46,7 +46,8 @@ function Editor(container, src) {
     'Cmd-O': () => this.emit('fullscreen'),
     'Ctrl-O': () => this.emit('fullscreen'),
     'Cmd-;': () => this.instant = !this.instant,
-    'Ctrl-;': () => this.instant = !this.instant
+    'Ctrl-;': () => this.instant = !this.instant,
+    'Tab': () => this.editor.execCommand('insertSoftTab')
   })
 
   // Auto-updating disabled for now
