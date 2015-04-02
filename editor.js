@@ -112,6 +112,11 @@ Editor.prototype.reload = function() {
   this.update(this.editor.getValue())
 }
 
+Editor.prototype.value = function(value) {
+  this.editor.setValue(value)
+  this.reload()
+}
+
 Object.defineProperty(Editor.prototype, 'instant', {
   get: function() {
     return this._instant

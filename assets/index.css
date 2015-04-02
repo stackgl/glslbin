@@ -212,3 +212,10 @@ main {
   z-index: 99;
   width: 100vw;
 }
+
+select[name="examples"] {
+  margin-right: 0.75rem;
+  position: relative;
+  top: 1.5rem;
+  transform: translate(0,-50%);
+}

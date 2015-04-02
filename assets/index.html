@@ -7,11 +7,18 @@
   </head>
   <body>
     <header>
-      <h1><span class="lang">GLSL</span>bin</h1>
+      <h1>
+        <span class="lang">GLSL</span>bin
+      </h1>
       <ul class="buttons">
         <li title="Update Shader (Cmd+Enter / Ctrl+Enter)" class="play"></li>
         <li title="Toggle Fullscreen (Cmd+O / Ctrl+O)" class="full"></li>
         <li title="Toggle Instant Mode (Cmd+; / Ctrl+;)" class="auto"></li>
+        <select name="examples">
+          <option value="">-- Examples --</option>
+          <option value="noise">Simplex Noise</option>
+          <option value="sphere">Raytraced Sphere</option>
+        </select>
       </ul>
     </header>
     <main>

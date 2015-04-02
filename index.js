@@ -49,3 +49,13 @@ function toggleFullscreen() {
   fitter(canvas)
   editor.resize()
 }
+
+var egSelector = document.querySelector('[name="examples"]')
+var examples = require('./examples')
+
+egSelector.addEventListener('change', e => {
+  var name = egSelector.value
+  if(!name) return
+
+  editor.value(examples[egSelector.value].trim())
+})
