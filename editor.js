@@ -44,11 +44,13 @@ function Editor(container, src) {
     'Cmd-Enter': () => this.reload(),
     'Ctrl-Enter': () => this.reload(),
     'Cmd-O': () => this.emit('fullscreen'),
-    'Ctrl-O': () => this.emit('fullscreen')
+    'Ctrl-O': () => this.emit('fullscreen'),
+    'Cmd-;': () => this.instant = !this.instant,
+    'Ctrl-;': () => this.instant = !this.instant
   })
 
   // Auto-updating disabled for now
-  this.instant = false
+  this.instant = true
   this.editor.on('change', debounce(function() {
     if (!self.instant) return
     self.update(self.editor.getValue())
