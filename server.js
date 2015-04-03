@@ -1,5 +1,6 @@
 const st         = require('serve-static')
 const browserify = require('browserify')
+const storage    = require('./storage')
 const uglify     = require('uglify-js')
 const router     = require('course')()
 const watchify   = require('watchify')
@@ -15,6 +16,25 @@ const PORT = process.env.PORT || 12421
 router.get(st(path.join(__dirname, 'assets')))
 router.get(st(path.join(__dirname, 'dist')))
 router.post('/-/shader', require('./shader-tree'))
+router.post('/-/share', require('./shader-share'))
+
+router.get('/s/:shader', function(req, res, next) {
+  req.url = '/'
+  router(req, res, next)
+})
+
+router.get('/shaders/:shader', function(req, res, next) {
+  if (path.extname(req.url) !== '.json') return next()
+
+  this.shader = this.shader.replace(/\.json$/, '')
+
+  storage.get(this.shader, function(err, data) {
+    if (err) return next(err)
+
+    res.setHeader('content-type', 'application/json')
+    res.end(JSON.stringify(data))
+  })
+})
 
 http.createServer(function(req, res) {
   router(req, res, function(err) {

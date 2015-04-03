@@ -181,6 +181,7 @@ main {
 .buttons li.play { background-image: url('/play.svg'); }
 .buttons li.auto { background-image: url('/auto.svg'); }
 .buttons li.full { background-image: url('/full.svg'); }
+.buttons li.save { background-image: url('/save.svg'); }
 .fullscreen .buttons li.full { background-image: url('/full-close.svg'); }
 .instant    .buttons li.auto { background-image: url('/auto-on.svg'); }
 
