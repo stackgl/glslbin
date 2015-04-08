@@ -1,3 +1,4 @@
+const gzip       = require('compression')()
 const st         = require('serve-static')
 const browserify = require('browserify')
 const storage    = require('./storage')
@@ -37,12 +38,16 @@ router.get('/shaders/:shader', function(req, res, next) {
 })
 
 http.createServer(function(req, res) {
-  router(req, res, function(err) {
+  gzip(req, res, function(err) {
     if (err) return bail(err, req, res)
 
-    res.statusCode = 404
-    res.setHeader('content-type', 'text/plain')
-    res.end('404: ' + req.url)
+    router(req, res, function(err) {
+      if (err) return bail(err, req, res)
+
+      res.statusCode = 404
+      res.setHeader('content-type', 'text/plain')
+      res.end('404: ' + req.url)
+    })
   })
 }).listen(PORT, function(err) {
   if (err) throw err
