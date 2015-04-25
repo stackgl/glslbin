@@ -16,6 +16,7 @@ const PORT = process.env.PORT || 12421
 
 router.get(st(path.join(__dirname, 'assets')))
 router.get(st(path.join(__dirname, 'dist')))
+router.post('/-/source', require('./shader-string'))
 router.post('/-/shader', require('./shader-tree'))
 router.post('/-/share', require('./shader-share'))
 
