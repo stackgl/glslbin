@@ -11,7 +11,6 @@ function shaderString(req, res, next) {
   res.setHeader('access-control-allow-origin', '*')
   res.setHeader('content-type', 'text/plain')
 
-  req.on('data', function(_){console.error(_+'')})
   req.pipe(bl(function(err, input) {
     if (err) return next(err)
 
