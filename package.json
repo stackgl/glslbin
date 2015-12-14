@@ -24,7 +24,7 @@
     "frame-debounce": "^1.0.1",
     "gl-context": "^0.1.1",
     "gl-shader": "^4.0.0",
-    "glslify": "^2.0.0",
+    "glslify": "^5.0.0",
     "glslify-bundle": "^5.0.0",
     "glslify-client": "^2.0.0",
     "glslify-deps": "^1.2.5",
