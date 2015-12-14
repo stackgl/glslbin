@@ -32,7 +32,7 @@
     "glslify-resolve-remote": "^2.1.0",
     "inherits": "^2.0.1",
     "knox": "^0.9.2",
-    "level": "^0.18.0",
+    "level": "^1.4.0",
     "mkdirp": "^0.5.0",
     "mousetrap": "^1.4.6",
     "right-now": "^1.0.0",
