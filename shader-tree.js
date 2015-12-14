@@ -1,4 +1,4 @@
-const resolver = require('glslify-resolve-remote')()
+const resolver = require('glslify-resolve-remote')({})
 const deps     = require('glslify-deps')
 const bl       = require('bl')
 
